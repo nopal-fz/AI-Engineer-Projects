@@ -1,0 +1,498 @@
+2025-07-25 11:33:54,397 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-25 11:33:54,412 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-25 11:33:54,448 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 11:33:54,476 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 11:33:54,505 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 11:33:54,533 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 11:33:54,557 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 11:33:54,581 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 11:33:54,602 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 11:33:54,615 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 11:33:54,624 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 11:33:54,624 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-25 11:33:54,625 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-25 11:33:54,625 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 11:33:54,629 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 11:33:54,629 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-25 11:33:54,629 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 11:33:54,629 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 11:33:56,736 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 11:33:56,777 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 11:33:56,777 - __main__ - INFO - Hybrid retriever created.
+2025-07-25 11:34:06,707 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-25 11:34:06,720 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-25 11:34:06,750 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 11:34:06,779 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 11:34:06,808 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 11:34:06,838 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 11:34:06,861 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 11:34:06,885 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 11:34:06,904 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 11:34:06,918 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 11:34:06,930 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 11:34:06,930 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-25 11:34:06,931 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-25 11:34:06,931 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 11:34:06,934 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 11:34:06,934 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-25 11:34:06,934 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 11:34:06,934 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 11:34:07,870 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 11:34:07,894 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 11:34:07,895 - __main__ - INFO - Hybrid retriever created.
+2025-07-25 11:34:07,896 - __main__ - INFO - Received question: who founder bitcoin?
+2025-07-25 11:34:07,951 - __main__ - INFO - 8 documents retrieved.
+2025-07-25 11:34:07,952 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-25 11:34:08,863 - reranker.hf_reranker - INFO - Successfully reranked 8 documents
+2025-07-25 11:34:08,863 - __main__ - INFO - 8 documents reranked.
+2025-07-25 11:34:08,864 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-25 11:34:08,864 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-25 11:34:08,865 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-25 11:34:24,891 - answer.answer_question - INFO - Generated base answer
+2025-07-25 11:34:24,891 - answer.answer_question - DEBUG - Base answer: According to the provided context, the founder of Bitcoin is Satoshi Nakamoto.
+2025-07-25 11:34:24,891 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-25 11:34:24,892 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-25 11:35:00,974 - answer.answer_question - INFO - Generated summarized answer
+2025-07-25 11:35:00,974 - answer.answer_question - DEBUG - Summarized answer: Here is a concise and structured summary:
+
+**Introduction**
+The origin of Bitcoin lies in the hands of its founder, Satoshi Nakamoto. This enigmatic figure remains anonymous, leaving us with more questions than answers about their identity.
+
+**Satoshi's Vision**
+Satoshi's creation was revolutionary, as it introduced a decentralized digital currency that operates independently of central banks and governments. Their vision aimed to create a secure, transparent, and peer-to-peer payment system that enables instant transactions without the need for intermediaries.
+
+**The Genesis of Bitcoin**
+In 2009, Satoshi Nakamoto published the Bitcoin whitepaper, outlining the fundamental principles of the cryptocurrency. This marked the beginning of the Bitcoin era, which has since grown into a global phenomenon with a market capitalization in the hundreds of billions.
+
+**Legacy and Impact**
+Satoshi's legacy extends far beyond their anonymity, as Bitcoin has inspired a wave of decentralized technologies and innovations. The blockchain concept, at the heart of Bitcoin's architecture, has become a cornerstone for various industries, including finance, supply chain management, and more.
+
+I hope this summary meets your requirements!
+2025-07-25 11:35:00,974 - answer.answer_question - INFO - Successfully generated answer
+2025-07-25 11:35:00,976 - __main__ - INFO - Answer generated.
+2025-07-25 11:35:51,464 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-25 11:35:51,476 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-25 11:35:51,507 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 11:35:51,537 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 11:35:51,566 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 11:35:51,595 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 11:35:51,618 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 11:35:51,643 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 11:35:51,663 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 11:35:51,675 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 11:35:51,684 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 11:35:51,684 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-25 11:35:51,684 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-25 11:35:51,686 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 11:35:51,689 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 11:35:51,689 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-25 11:35:51,689 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 11:35:51,689 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 11:35:53,778 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 11:35:53,798 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 11:35:53,799 - __main__ - INFO - Hybrid retriever created.
+2025-07-25 11:35:53,799 - __main__ - INFO - Received question: how to buy bitcoin?
+2025-07-25 11:35:53,840 - __main__ - INFO - 8 documents retrieved.
+2025-07-25 11:35:53,840 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-25 11:35:54,245 - reranker.hf_reranker - INFO - Successfully reranked 8 documents
+2025-07-25 11:35:54,245 - __main__ - INFO - 8 documents reranked.
+2025-07-25 11:35:54,246 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-25 11:35:54,246 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-25 11:35:54,246 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-25 11:36:31,684 - answer.answer_question - INFO - Generated base answer
+2025-07-25 11:36:31,684 - answer.answer_question - DEBUG - Base answer: To buy Bitcoin, you can follow these steps:
+
+1. Choose a reputable online cryptocurrency exchange that allows you to buy and sell Bitcoin.
+2. Sign up for an account with the exchange and verify your identity.
+3. Deposit funds into your account using a payment method accepted by the exchange (such as bank transfer or credit card).
+4. Use the exchange's interface to select the amount of Bitcoin you want to purchase and initiate the transaction.
+5. Wait for the transaction to be processed and confirmed by the network.
+
+Note: The context provided is an academic paper about Bitcoin, not a guide on how to buy it.
+2025-07-25 11:36:31,684 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-25 11:36:31,684 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-25 11:37:13,045 - answer.answer_question - INFO - Generated summarized answer
+2025-07-25 11:37:13,045 - answer.answer_question - DEBUG - Summarized answer: Here is a concise summary of the steps to buy Bitcoin:
+
+**Section 1: Choosing a Reputable Exchange**
+To start buying Bitcoin, select a reliable online cryptocurrency exchange that allows you to buy and sell digital currency. This step is crucial in ensuring the security and legitimacy of your transaction.
+
+**Section 2: Signing Up and Verification**
+Create an account with the chosen exchange and verify your identity through a secure process. This ensures the exchange has a record of who you are, adding an extra layer of protection to your transactions.
+
+**Section 3: Funding Your Account**
+Deposit funds into your account using a payment method accepted by the exchange, such as bank transfer or credit card. This step enables you to have the necessary funds to purchase Bitcoin on the platform.
+
+**Section 4: Initiating the Purchase**
+Use the exchange's interface to specify the amount of Bitcoin you want to buy and initiate the transaction. This involves selecting the desired quantity and completing any additional required steps, such as accepting the terms and conditions.
+
+**Section 5: Waiting for Confirmation**
+Once the purchase is initiated, wait for the transaction to be processed and confirmed by the network. This may take a few minutes or hours, depending on the exchange's processing time and the blockchain's confirmation requirements.
+2025-07-25 11:37:13,045 - answer.answer_question - INFO - Successfully generated answer
+2025-07-25 11:37:13,046 - __main__ - INFO - Answer generated.
+2025-07-25 12:48:45,098 - __main__ - INFO - Uploaded file: 20250725_124845_bitcoin.pdf
+2025-07-25 12:48:45,110 - utils.extract_pdf - INFO - Opening PDF file: pdfs\20250725_124845_bitcoin.pdf
+2025-07-25 12:48:45,153 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 12:48:45,184 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 12:48:45,217 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 12:48:45,248 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 12:48:45,544 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 12:48:45,573 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 12:48:45,595 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 12:48:45,609 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 12:48:45,620 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 12:48:45,620 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs\20250725_124845_bitcoin.pdf
+2025-07-25 12:48:45,620 - __main__ - INFO - Text successfully extracted from PDF
+2025-07-25 12:48:45,621 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 12:48:45,624 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 12:48:45,625 - __main__ - INFO - Text cleaned and split into chunks
+2025-07-25 12:48:45,625 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 12:48:45,625 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 12:48:47,606 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 12:48:47,647 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 12:48:47,647 - __main__ - INFO - Hybrid retriever created
+2025-07-25 12:48:59,195 - __main__ - INFO - Received question: who founder bitcoin?
+2025-07-25 12:48:59,386 - __main__ - INFO - 8 documents retrieved
+2025-07-25 12:48:59,386 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-25 12:49:00,357 - reranker.hf_reranker - INFO - Successfully reranked 8 documents
+2025-07-25 12:49:00,357 - __main__ - INFO - 8 documents reranked
+2025-07-25 12:49:00,357 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-25 12:49:00,358 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-25 12:49:00,358 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-25 12:49:19,272 - answer.answer_question - INFO - Generated base answer
+2025-07-25 12:49:19,273 - answer.answer_question - DEBUG - Base answer: The founder of Bitcoin is Satoshi Nakamoto.
+2025-07-25 12:49:19,273 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-25 12:49:19,273 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-25 12:50:17,178 - answer.answer_question - INFO - Generated summarized answer
+2025-07-25 12:50:17,178 - answer.answer_question - DEBUG - Summarized answer: **Introduction**
+
+The journey to understand the foundation of Bitcoin begins with its creator, Satoshi Nakamoto. While much is known about the impact of Bitcoin on the global financial landscape, the mystery surrounding Satoshi's true identity remains an intriguing aspect of this technological phenomenon.
+
+**Who is Satoshi Nakamoto?**
+
+Satoshi Nakamoto is a pseudonymous individual or group responsible for developing and releasing the Bitcoin whitepaper in October 2008. The whitepaper outlined the concepts and design principles behind Bitcoin, including its decentralized ledger technology, known as blockchain. Satoshi's involvement with Bitcoin was marked by a series of cryptic posts on online forums, where they shared their vision for a peer-to-peer electronic cash system.
+
+**The Mysterious Nature of Satoshi**
+
+Despite numerous attempts to uncover Satoshi's true identity, the world remains in the dark about this enigmatic figure. Some have speculated that Satoshi is a pseudonym for a collective of experts, while others believe it could be a single individual with an extraordinary understanding of cryptography and computer science. The anonymity surrounding Satoshi has sparked both fascination and skepticism, leading to ongoing debates about the ethics and implications of their role in shaping the future of digital currencies.
+
+**Legacy and Impact**
+
+Satoshi's work on Bitcoin laid the groundwork for a global movement that has transformed the financial landscape. Their vision for decentralized, secure, and transparent transactions has inspired countless developers, entrepreneurs, and innovators to build upon the foundation they established. Today, Bitcoin is one of the most widely recognized digital currencies, with millions of users worldwide, and its impact extends far beyond the realm of finance into the broader fields of technology, economics, and society.
+2025-07-25 12:50:17,178 - answer.answer_question - INFO - Successfully generated answer
+2025-07-25 12:50:17,179 - __main__ - INFO - Answer generated
+2025-07-25 18:01:25,398 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-25 18:01:25,421 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-25 18:01:25,488 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 18:01:25,563 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 18:01:25,645 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 18:01:25,733 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 18:01:25,803 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 18:01:25,867 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 18:01:25,921 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 18:01:25,959 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 18:01:25,978 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 18:01:25,978 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-25 18:01:25,978 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-25 18:01:25,978 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 18:01:25,984 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 18:01:25,984 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-25 18:01:25,984 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 18:01:25,984 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 18:01:30,371 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 18:01:30,493 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 18:01:30,493 - __main__ - INFO - Hybrid retriever created.
+2025-07-25 18:02:46,428 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-25 18:02:46,451 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-25 18:02:46,519 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-25 18:02:46,573 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-25 18:02:46,628 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-25 18:02:46,685 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-25 18:02:46,728 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-25 18:02:46,780 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-25 18:02:46,816 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-25 18:02:46,844 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-25 18:02:46,862 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-25 18:02:46,862 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-25 18:02:46,862 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-25 18:02:46,864 - utils.splitter - INFO - Splitting text into chunks
+2025-07-25 18:02:46,872 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-25 18:02:46,872 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-25 18:02:46,872 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-25 18:02:46,872 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-25 18:02:48,165 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-25 18:02:48,203 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-25 18:02:48,203 - __main__ - INFO - Hybrid retriever created.
+2025-07-25 18:02:48,205 - __main__ - INFO - Received question: who is satoshi nakamoto?
+2025-07-25 18:02:48,346 - __main__ - INFO - 9 documents retrieved.
+2025-07-25 18:02:48,346 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-25 18:02:49,538 - reranker.hf_reranker - INFO - Successfully reranked 9 documents
+2025-07-25 18:02:49,539 - __main__ - INFO - 9 documents reranked.
+2025-07-25 18:02:49,539 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-25 18:02:49,539 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-25 18:02:49,539 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-25 18:03:19,043 - answer.answer_question - INFO - Generated base answer
+2025-07-25 18:03:19,043 - answer.answer_question - DEBUG - Base answer: Satoshi Nakamoto is the pseudonymous author of the Bitcoin whitepaper, which introduced the concept of a decentralized cryptocurrency and peer-to-peer electronic cash system. The true identity of Satoshi Nakamoto is unknown.
+2025-07-25 18:03:19,043 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-25 18:03:19,044 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-25 18:03:45,894 - answer.answer_question - INFO - Generated summarized answer
+2025-07-25 18:03:45,894 - answer.answer_question - DEBUG - Summarized answer: Here is a structured and concise summary of the original answer:
+
+**Introduction**
+Satoshi Nakamoto is the mysterious creator behind Bitcoin, a revolutionary concept that introduced decentralized cryptocurrency and peer-to-peer electronic cash systems.
+
+**The Whitepaper and Its Impact**
+The Bitcoin whitepaper, written by Satoshi Nakamoto, presented a groundbreaking idea: a digital currency not controlled by any government or institution. This concept enabled secure, fast, and low-cost transactions without the need for intermediaries. The whitepaper's publication sparked widespread interest in the cryptocurrency space.
+
+**The Mystery of Satoshi Nakamoto**
+Despite significant efforts to uncover his true identity, Satoshi Nakamoto remains anonymous. His pseudonym has become synonymous with innovation and pioneering work in the field of cryptocurrencies.
+2025-07-25 18:03:45,895 - answer.answer_question - INFO - Successfully generated answer
+2025-07-25 18:03:45,897 - __main__ - INFO - Answer generated.
+2025-07-26 09:08:22,374 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-26 09:08:22,395 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-26 09:08:22,455 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-26 09:08:22,503 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-26 09:08:22,553 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-26 09:08:22,612 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-26 09:08:22,659 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-26 09:08:22,705 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-26 09:08:22,743 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-26 09:08:22,774 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-26 09:08:22,794 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-26 09:08:22,795 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-26 09:08:22,795 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 09:08:22,796 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 09:08:22,803 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-26 09:08:22,803 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 09:08:22,803 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 09:08:22,805 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 09:08:27,235 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 09:08:27,338 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 09:08:27,338 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 09:09:40,087 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-26 09:09:40,108 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-26 09:09:40,177 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-26 09:09:40,227 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-26 09:09:40,277 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-26 09:09:40,335 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-26 09:09:40,370 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-26 09:09:40,420 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-26 09:09:40,457 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-26 09:09:40,481 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-26 09:09:40,497 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-26 09:09:40,497 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-26 09:09:40,497 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 09:09:40,499 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 09:09:40,503 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-26 09:09:40,503 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 09:09:40,503 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 09:09:40,503 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 09:09:42,022 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 09:09:42,059 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 09:09:42,061 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 09:09:42,061 - __main__ - INFO - Received question: who is the founder of bitcoin? And tell me a little about his biography
+2025-07-26 09:09:42,240 - __main__ - INFO - 8 documents retrieved.
+2025-07-26 09:09:42,242 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-26 09:09:43,611 - reranker.hf_reranker - INFO - Successfully reranked 8 documents
+2025-07-26 09:09:43,611 - __main__ - INFO - 8 documents reranked.
+2025-07-26 09:09:43,611 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-26 09:09:43,611 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-26 09:09:43,611 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-26 09:10:10,156 - answer.answer_question - INFO - Generated base answer
+2025-07-26 09:10:10,156 - answer.answer_question - DEBUG - Base answer: The founder of Bitcoin is Satoshi Nakamoto. However, his real identity remains unknown, and he has not publicly revealed himself.
+2025-07-26 09:10:10,156 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-26 09:10:10,156 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-26 09:11:07,021 - answer.answer_question - INFO - Generated summarized answer
+2025-07-26 09:11:07,021 - answer.answer_question - DEBUG - Summarized answer: **Summary**
+
+**Introduction**
+Satoshi Nakamoto, the enigmatic creator of Bitcoin, continues to shroud his true identity in mystery. Despite being a pivotal figure in the world of cryptocurrency, Satoshi's real name remains unknown, leaving many to speculate about his background and motivations.
+
+**The Mystery Surrounding Satoshi**
+Satoshi's anonymity has sparked intense curiosity among experts and enthusiasts alike. Despite extensive efforts, no one has been able to uncover his true identity, leading some to question whether he even exists as a single individual. The lack of information surrounding Satoshi has only added to the allure and intrigue surrounding Bitcoin.
+
+**The Impact on Cryptocurrency**
+Satoshi's creation of Bitcoin not only revolutionized the financial landscape but also cemented his place in history. As the inventor of the first decentralized, peer-to-peer cryptocurrency, Satoshi's anonymity has allowed him to remain a silent influencer, guiding the development of Bitcoin without drawing attention to himself.
+
+**The Search for Satoshi Continues**
+Despite the veil of secrecy surrounding Satoshi, the search for his true identity continues. While some speculate about his motivations and potential connections to other notable figures in the field, others believe that Satoshi's anonymity is a deliberate choice, allowing him to remain unencumbered by personal opinions or biases.
+2025-07-26 09:11:07,021 - answer.answer_question - INFO - Successfully generated answer
+2025-07-26 09:11:07,022 - __main__ - INFO - Answer generated.
+2025-07-26 09:31:03,506 - __main__ - INFO - Uploaded file: bitcoin.pdf
+2025-07-26 09:31:03,516 - utils.extract_pdf - INFO - Opening PDF file: pdfs/bitcoin.pdf
+2025-07-26 09:31:03,550 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 3157
+2025-07-26 09:31:03,578 - utils.extract_pdf - DEBUG - Extracted text from page 2, length: 2453
+2025-07-26 09:31:03,606 - utils.extract_pdf - DEBUG - Extracted text from page 3, length: 3134
+2025-07-26 09:31:03,636 - utils.extract_pdf - DEBUG - Extracted text from page 4, length: 2809
+2025-07-26 09:31:03,660 - utils.extract_pdf - DEBUG - Extracted text from page 5, length: 2313
+2025-07-26 09:31:03,683 - utils.extract_pdf - DEBUG - Extracted text from page 6, length: 2647
+2025-07-26 09:31:03,701 - utils.extract_pdf - DEBUG - Extracted text from page 7, length: 2238
+2025-07-26 09:31:03,713 - utils.extract_pdf - DEBUG - Extracted text from page 8, length: 1806
+2025-07-26 09:31:03,722 - utils.extract_pdf - DEBUG - Extracted text from page 9, length: 1128
+2025-07-26 09:31:03,722 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/bitcoin.pdf
+2025-07-26 09:31:03,722 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 09:31:03,723 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 09:31:03,726 - utils.splitter - INFO - Successfully split text into 27 chunks
+2025-07-26 09:31:03,726 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 09:31:03,726 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 09:31:03,726 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 09:31:05,158 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 09:31:05,192 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 09:31:05,192 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:12:19,387 - __main__ - INFO - Uploaded file: 20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:19,401 - utils.extract_pdf - INFO - Opening PDF file: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:19,427 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 1417
+2025-07-26 10:12:19,427 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:19,428 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 10:12:19,429 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 10:12:19,430 - utils.splitter - INFO - Successfully split text into 2 chunks
+2025-07-26 10:12:19,430 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 10:12:19,430 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 10:12:19,430 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 10:12:20,632 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 10:12:20,635 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 10:12:20,635 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:12:37,062 - __main__ - INFO - Uploaded file: 20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:37,078 - utils.extract_pdf - INFO - Opening PDF file: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:37,097 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 1417
+2025-07-26 10:12:37,097 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:12:37,097 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 10:12:37,097 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 10:12:37,098 - utils.splitter - INFO - Successfully split text into 2 chunks
+2025-07-26 10:12:37,098 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 10:12:37,098 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 10:12:37,099 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 10:12:37,352 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 10:12:37,354 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 10:12:37,355 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:12:37,356 - __main__ - INFO - Received question: can you tell me NIM for name Naufal Faiz Nugraha?
+2025-07-26 10:12:37,387 - __main__ - INFO - 2 documents retrieved.
+2025-07-26 10:12:37,388 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-26 10:12:37,761 - reranker.hf_reranker - INFO - Successfully reranked 2 documents
+2025-07-26 10:12:37,761 - __main__ - INFO - 2 documents reranked.
+2025-07-26 10:12:37,761 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-26 10:12:37,762 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-26 10:12:37,762 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-26 10:12:53,772 - answer.answer_question - INFO - Generated base answer
+2025-07-26 10:12:53,772 - answer.answer_question - DEBUG - Base answer: The NIM for the name Naufal Faiz Nugraha is 1.23031554020.
+2025-07-26 10:12:53,772 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-26 10:12:53,772 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-26 10:13:31,972 - answer.answer_question - INFO - Generated summarized answer
+2025-07-26 10:13:31,972 - answer.answer_question - DEBUG - Summarized answer: Here is a concise and clear summary of the technical explanation:
+
+**Introduction**
+Naufal Faiz Nugraha's NIM (Numerical Identifier Model) value is 1.23031554020. This unique identifier provides insight into the individual's personality, character traits, and behavior patterns.
+
+**Breakdown of the NIM Value**
+The NIM value is composed of three main elements: the first digit represents the person's natural tendency to be either introverted or extroverted; the middle digits indicate their emotional response to situations (1-5, with 3 being neutral); and the last digits reveal their level of adaptability and resilience.
+
+**Interpretation**
+With an NIM value of 1.23031554020, Naufal Faiz Nugraha is likely an introverted individual who tends to be reserved in social situations. They may have a strong emotional response to certain events, which could influence their decision-making process (neutral range). Additionally, they exhibit high adaptability and resilience, allowing them to navigate life's challenges effectively.
+
+Let me know if you'd like me to clarify anything!
+2025-07-26 10:13:31,972 - answer.answer_question - INFO - Successfully generated answer
+2025-07-26 10:13:31,973 - __main__ - INFO - Answer generated.
+2025-07-26 10:15:26,458 - __main__ - INFO - Uploaded file: 20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:15:26,474 - utils.extract_pdf - INFO - Opening PDF file: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:15:26,484 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 1417
+2025-07-26 10:15:26,484 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:15:26,485 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 10:15:26,485 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 10:15:26,486 - utils.splitter - INFO - Successfully split text into 2 chunks
+2025-07-26 10:15:26,486 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 10:15:26,486 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 10:15:26,486 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 10:15:28,051 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 10:15:28,052 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 10:15:28,053 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:15:28,053 - __main__ - INFO - Received question: what about nim for bagus febriansyah pratama? just answer the nim and name only
+2025-07-26 10:15:28,086 - __main__ - INFO - 2 documents retrieved.
+2025-07-26 10:15:28,086 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-26 10:15:28,349 - reranker.hf_reranker - INFO - Successfully reranked 2 documents
+2025-07-26 10:15:28,350 - __main__ - INFO - 2 documents reranked.
+2025-07-26 10:15:28,350 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-26 10:15:28,350 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-26 10:15:28,350 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-26 10:15:43,278 - answer.answer_question - INFO - Generated base answer
+2025-07-26 10:15:43,278 - answer.answer_question - DEBUG - Base answer: The answer is: 4.23031554144 Bagus Febriansyah Pratama
+2025-07-26 10:15:43,278 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-26 10:15:43,278 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-26 10:15:59,524 - answer.answer_question - INFO - Generated summarized answer
+2025-07-26 10:15:59,524 - answer.answer_question - DEBUG - Summarized answer: I apologize, but it seems like I'm starting with a blank slate! Since there's no original abstract or technical explanation provided, I won't be able to summarize it for you.
+
+However, if you'd like me to create a sample summary based on a hypothetical technical topic, I can certainly do that. Please let me know what type of topic you're interested in (e.g., computer science, engineering, biology, etc.), and I'll provide a structured and concise summary with insights and clarity.
+2025-07-26 10:15:59,525 - answer.answer_question - INFO - Successfully generated answer
+2025-07-26 10:15:59,526 - __main__ - INFO - Answer generated.
+2025-07-26 10:16:25,454 - __main__ - INFO - Uploaded file: 20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:16:25,469 - utils.extract_pdf - INFO - Opening PDF file: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:16:25,480 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 1417
+2025-07-26 10:16:25,480 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:16:25,480 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 10:16:25,480 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 10:16:25,481 - utils.splitter - INFO - Successfully split text into 2 chunks
+2025-07-26 10:16:25,481 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 10:16:25,481 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 10:16:25,481 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 10:16:27,039 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 10:16:27,040 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 10:16:27,041 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:16:27,041 - __main__ - INFO - Received question: tell me nim for name bagus febriansyah pratama? just answer the nim and name only
+2025-07-26 10:16:27,072 - __main__ - INFO - 2 documents retrieved.
+2025-07-26 10:16:27,072 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-26 10:16:27,341 - reranker.hf_reranker - INFO - Successfully reranked 2 documents
+2025-07-26 10:16:27,341 - __main__ - INFO - 2 documents reranked.
+2025-07-26 10:16:27,341 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-26 10:16:27,342 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-26 10:16:27,342 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-26 10:16:42,568 - answer.answer_question - INFO - Generated base answer
+2025-07-26 10:16:42,568 - answer.answer_question - DEBUG - Base answer: NIM: 23031554144
+Name: Bagus Febriansyah Pratama
+2025-07-26 10:16:42,568 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-26 10:16:42,568 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-26 10:16:51,713 - answer.answer_question - INFO - Generated summarized answer
+2025-07-26 10:16:51,713 - answer.answer_question - DEBUG - Summarized answer: I apologize, but it seems that the original answer is not a technical explanation or abstract. It appears to be an individual's personal information (name and NIM number).
+
+If you could provide me with a technical explanation or abstract, I'd be happy to help summarize it for you!
+2025-07-26 10:16:51,713 - answer.answer_question - INFO - Successfully generated answer
+2025-07-26 10:16:51,714 - __main__ - INFO - Answer generated.
+2025-07-26 10:17:15,184 - __main__ - INFO - Uploaded file: 20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:17:15,200 - utils.extract_pdf - INFO - Opening PDF file: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:17:15,209 - utils.extract_pdf - DEBUG - Extracted text from page 1, length: 1417
+2025-07-26 10:17:15,210 - utils.extract_pdf - INFO - Successfully extracted text from PDF: pdfs/20250619094704Magang UNESA Naufal dkk.pdf
+2025-07-26 10:17:15,210 - __main__ - INFO - Text successfully extracted from PDF.
+2025-07-26 10:17:15,210 - utils.splitter - INFO - Splitting text into chunks
+2025-07-26 10:17:15,210 - utils.splitter - INFO - Successfully split text into 2 chunks
+2025-07-26 10:17:15,210 - __main__ - INFO - Text cleaned and split into chunks.
+2025-07-26 10:17:15,211 - retrieval.hybrid_retriever - INFO - Creating hybrid retriever
+2025-07-26 10:17:15,211 - embedd.embedder - INFO - Creating Ollama embedding instance
+2025-07-26 10:17:16,845 - embedd.embedder - INFO - Successfully created Ollama embedding instance
+2025-07-26 10:17:16,847 - retrieval.hybrid_retriever - INFO - Successfully created hybrid retriever
+2025-07-26 10:17:16,847 - __main__ - INFO - Hybrid retriever created.
+2025-07-26 10:17:16,848 - __main__ - INFO - Received question: yeah i mean NIM for name bagus febriansyah pratama
+2025-07-26 10:17:16,884 - __main__ - INFO - 2 documents retrieved.
+2025-07-26 10:17:16,885 - reranker.hf_reranker - INFO - Reranking documents with CrossEncoder
+2025-07-26 10:17:17,165 - reranker.hf_reranker - INFO - Successfully reranked 2 documents
+2025-07-26 10:17:17,165 - __main__ - INFO - 2 documents reranked.
+2025-07-26 10:17:17,165 - prompt.base_prompt - INFO - Creating base prompt template
+2025-07-26 10:17:17,165 - prompt.base_prompt - INFO - Successfully created base prompt template
+2025-07-26 10:17:17,165 - answer.answer_question - INFO - Creating Ollama LLM instance for answering question
+2025-07-26 10:17:32,382 - answer.answer_question - INFO - Generated base answer
+2025-07-26 10:17:32,383 - answer.answer_question - DEBUG - Base answer: The NIM for Bagus Febriansyah Pratama is 23031554144.
+2025-07-26 10:17:32,383 - prompt.summa_prompt - INFO - Creating summary prompt template
+2025-07-26 10:17:32,383 - prompt.summa_prompt - INFO - Successfully created summary prompt template
+2025-07-26 10:18:06,900 - answer.answer_question - INFO - Generated summarized answer
+2025-07-26 10:18:06,901 - answer.answer_question - DEBUG - Summarized answer: Here's a summary of the technical explanation:
+
+**Section 1: Introduction**
+
+The NIM (Nomor Induk Mahasiswa) provided, which is 23031554144, serves as a unique identifier for Bagus Febriansyah Pratama, a student at an educational institution in Indonesia. This numerical code is used to track and manage student information, making it easier to access and share data among different systems.
+
+**Section 2: NIM Functionality**
+
+The NIM plays a crucial role in managing student records and facilitating communication between institutions. With this identifier, Bagus Febriansyah Pratama's academic and personal details are readily available, allowing for efficient processing of administrative tasks such as enrollment, graduation, and academic transcript management.
+
+**Section 3: Practical Applications**
+
+In practical terms, the NIM simplifies administrative processes, enabling institutions to quickly retrieve information about students like Bagus Febriansyah Pratama. This streamlines data management, reducing errors and increasing the overall efficiency of student services.
+2025-07-26 10:18:06,901 - answer.answer_question - INFO - Successfully generated answer
+2025-07-26 10:18:06,902 - __main__ - INFO - Answer generated.
