@@ -9,7 +9,7 @@ A collection of hands-on projects designed to sharpen and showcase AI Engineerin
 | Project Name | Short Description | Tech Stack |
 |--------------|-------------------|------------|
 | `01-advance-rag-system` | A hybrid RAG system using vector + keyword retriever, Ollama (DeepSeek / LLaMA3), CrossEncoder reranker, and summarization with Summa | Python, LangChain, Ollama, FAISS, DuckDB, CrossEncoder, Summa, Streamlit |
-| `02-customize-rag-system` | A hybrid RAG system with user-customizable parameters, including chunking (type, size, overlap, mode), vector store (embedding, backend, top-k), and language model (provider, model). Built with support for Chonkie to enable flexible text chunking and better retrieval performance |
+| `02-customize-rag-system` | A hybrid RAG system with user-customizable parameters, including chunking (type, size, overlap, mode), vector store (embedding, backend, top-k), and language model (provider, model). Built with support for Chonkie to enable flexible text chunking and better retrieval performance | Python, LangChain, Ollama, FAISS, DuckDB, CrossEncoder, Summa, Chonkie, FastAPI |
 
 > 📌 *Each folder contains its own documentation and setup instructions.*
 
