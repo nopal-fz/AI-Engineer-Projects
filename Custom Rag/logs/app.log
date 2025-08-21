@@ -1,0 +1,69 @@
+2025-08-20 18:56:10,565 - __main__ - INFO - Starting Extract Pdf File
+2025-08-20 18:56:53,226 - __main__ - INFO - Starting Extract Pdf File
+2025-08-20 19:59:18,676 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=character, size=1000, overlap=200, mode=semantic)
+2025-08-20 19:59:18,677 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 26 chunks
+2025-08-20 19:59:18,704 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-20 20:01:44,407 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=800, overlap=50, mode=semantic)
+2025-08-20 20:01:44,416 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 7 chunks
+2025-08-20 20:01:44,443 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-20 20:03:30,483 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=800, overlap=50, mode=semantic)
+2025-08-20 20:03:30,491 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 7 chunks
+2025-08-20 20:03:30,520 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-20 20:03:32,955 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=800, overlap=50, mode=semantic)
+2025-08-20 20:03:32,964 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 7 chunks
+2025-08-20 20:03:32,991 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-20 20:04:34,584 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=800, overlap=50, mode=paragraph)
+2025-08-20 20:04:34,589 - utils.splitter - INFO - Successfully split text (Chonkie-paragraph mode) into 1 chunks
+2025-08-20 20:04:34,621 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-20 20:04:58,273 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1000, overlap=200, mode=paragraph)
+2025-08-20 20:04:58,278 - utils.splitter - INFO - Successfully split text (Chonkie-paragraph mode) into 1 chunks
+2025-08-20 20:04:58,307 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 09:43:00,103 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 09:43:00,104 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x000001D3C73EF830>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 09:43:00,104 - main - ERROR - Error building index: 400: Teks kosong (mungkin PDF hasil scan)
+2025-08-21 09:43:17,212 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 09:43:17,212 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x000001D3C73EE610>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 09:43:17,212 - main - ERROR - Error building index: 400: Teks kosong (mungkin PDF hasil scan)
+2025-08-21 09:43:18,173 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 09:43:18,173 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x000001D3C73EE4D0>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 09:43:18,174 - main - ERROR - Error building index: 400: Teks kosong (mungkin PDF hasil scan)
+2025-08-21 09:44:10,670 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 09:44:10,671 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x000001D3C73EE390>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 09:44:10,671 - main - ERROR - Error building index: 400: Teks kosong (mungkin PDF hasil scan)
+2025-08-21 10:03:04,635 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 10:03:04,635 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x000001D3C73EF8D0>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 10:03:04,636 - main - ERROR - Error building index: 400: Teks kosong (mungkin PDF hasil scan)
+2025-08-21 12:09:55,344 - utils.pdf_reader - INFO - Starting Extract Pdf File
+2025-08-21 12:09:55,344 - utils.pdf_reader - ERROR - Failed to extract text from <_io.BytesIO object at 0x00000185C348B470>: expected str, bytes or os.PathLike object, not BytesIO
+2025-08-21 12:14:12,156 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:14:12,529 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1040, overlap=235, mode=semantic)
+2025-08-21 12:14:12,537 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 6 chunks
+2025-08-21 12:14:12,554 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:14:26,047 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:14:26,264 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1040, overlap=235, mode=semantic)
+2025-08-21 12:14:26,272 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 6 chunks
+2025-08-21 12:14:26,291 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:22:11,722 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:22:12,199 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1040, overlap=200, mode=semantic)
+2025-08-21 12:22:12,209 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (semantic) into 6 chunks
+2025-08-21 12:22:12,235 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:24:44,000 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:24:44,329 - utils.splitter - INFO - Splitting text (type=Recursive, unit=token, size=1040, overlap=200, mode=semantic)
+2025-08-21 12:24:44,376 - utils.splitter - INFO - Successfully split text with RecursiveCharacterTextSplitter into 6 chunks
+2025-08-21 12:24:44,403 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:30:10,206 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:30:11,154 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1010, overlap=190, mode=paragraph)
+2025-08-21 12:30:11,174 - utils.splitter - INFO - Successfully split text (Chonkie-paragraph mode) into 1 chunks
+2025-08-21 12:30:11,202 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:39:03,150 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:39:03,785 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=character, size=1010, overlap=205, mode=sentence)
+2025-08-21 12:39:03,791 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (sentence) into 154 chunks
+2025-08-21 12:39:03,807 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 12:42:39,935 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 12:42:41,001 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=token, size=1000, overlap=205, mode=paragraph)
+2025-08-21 12:42:41,022 - utils.splitter - INFO - Successfully split text (Chonkie-paragraph mode) into 1 chunks
+2025-08-21 12:42:41,047 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None
+2025-08-21 19:12:57,269 - utils.pdf_reader - INFO - Starting PDF text extraction via PyPDF2
+2025-08-21 19:12:58,483 - utils.splitter - INFO - Splitting text (type=Sentence Chunker, unit=character, size=1000, overlap=215, mode=sentence)
+2025-08-21 19:12:58,491 - utils.splitter - INFO - Successfully split text with Chonkie SentenceChunker (sentence) into 156 chunks
+2025-08-21 19:12:58,516 - retrieval.vectorstore_factory - INFO - Build vectorstore backend=faiss, embed=nomic-embed-text, persist=None

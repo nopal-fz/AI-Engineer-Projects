@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable RAG - Modern Document Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .slide-up:nth-child(1) { animation-delay: 0.1s; }
+        .slide-up:nth-child(2) { animation-delay: 0.2s; }
+        .slide-up:nth-child(3) { animation-delay: 0.3s; }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .chat-message {
+            animation: messageSlide 0.3s ease-out;
+        }
+        
+        @keyframes messageSlide {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        .hover-scale {
+            transition: transform 0.2s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        .config-card {
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        .config-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.2);
+        }
+        
+        .section-spacing {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .config-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
+    <div x-data="ragApp()" x-init="init()" class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 fade-in">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-search text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-gray-900">Customizable RAG</h1>
+                            <p class="text-sm text-gray-600">Modern Document Assistant</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div x-show="indexBuilt" class="flex items-center space-x-2 px-3 py-1.5 bg-green-100 text-green-800 rounded-full text-sm">
+                            <div class="w-2 h-2 bg-green-500 rounded-full pulse-slow"></div>
+                            <span>Index Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="space-y-8">
+                <!-- File Upload Section -->
+                <div class="bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden config-card slide-up">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                        <h2 class="text-lg font-semibold text-white flex items-center">
+                            <i class="fas fa-file-pdf mr-2"></i>
+                            Document Upload
+                        </h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="border-2 border-dashed border-blue-300 rounded-xl p-8 text-center hover:border-blue-400 transition-all duration-300 hover:bg-blue-50/30">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300">
+                                    <i class="fas fa-cloud-upload-alt text-xl text-blue-500" 
+                                       :class="selectedFile ? 'fa-check text-green-500' : 'fa-cloud-upload-alt text-blue-500'"></i>
+                                </div>
+                                <input type="file" 
+                                       x-ref="fileInput"
+                                       accept=".pdf" 
+                                       @change="handleFileSelect"
+                                       class="hidden">
+                                <button @click="$refs.fileInput.click()" 
+                                        class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-200 hover:scale-105">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    Choose PDF File
+                                </button>
+                                <p class="text-sm mt-3" 
+                                   :class="selectedFile ? 'text-green-600 font-medium' : 'text-gray-500'"
+                                   x-text="selectedFile ? '✓ ' + selectedFile.name : 'No file selected'"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Section -->
+                <div class="bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden config-card slide-up">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                        <h2 class="text-lg font-semibold text-white flex items-center">
+                            <i class="fas fa-cog mr-2"></i>
+                            RAG Configuration
+                        </h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Chunking Settings -->
+                            <div class="space-y-4">
+                                <h3 class="text-sm font-semibold text-gray-800 flex items-center border-b border-gray-200 pb-2">
+                                    <i class="fas fa-cut mr-2 text-blue-500"></i>
+                                    Chunking
+                                </h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                                    <select x-model="config.chunker_type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="Sentence Chunker">Sentence Chunker</option>
+                                        <option value="Recursive">Recursive</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
+                                    <select x-model="config.unit" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="token">Token</option>
+                                        <option value="character">Character</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Mode</label>
+                                    <select x-model="config.chonkie_mode" 
+                                            :disabled="config.chunker_type !== 'Sentence Chunker'"
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-gray-100 text-sm">
+                                        <option value="semantic">Semantic</option>
+                                        <option value="paragraph">Paragraph</option>
+                                        <option value="sentence">Sentence</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Chunk Size: <span class="text-blue-600" x-text="config.chunk_size"></span>
+                                    </label>
+                                    <input type="range" x-model="config.chunk_size" min="50" max="2000" step="10" class="w-full accent-blue-500">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Overlap: <span class="text-blue-600" x-text="config.overlap"></span>
+                                    </label>
+                                    <input type="range" x-model="config.overlap" min="0" :max="config.chunk_size - 1" step="5" class="w-full accent-blue-500">
+                                </div>
+                            </div>
+
+                            <!-- Embedding & Vector Store -->
+                            <div class="space-y-4">
+                                <h3 class="text-sm font-semibold text-gray-800 flex items-center border-b border-gray-200 pb-2">
+                                    <i class="fas fa-brain mr-2 text-blue-500"></i>
+                                    Vector Store
+                                </h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Embedding</label>
+                                    <select x-model="config.embed_name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="nomic-embed-text">Nomic Embed</option>
+                                        <option value="text-embedding-3-small">OpenAI Embedding</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Backend</label>
+                                    <select x-model="config.backend" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="faiss">FAISS</option>
+                                        <option value="chroma">Chroma</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Top-K: <span class="text-blue-600" x-text="config.top_k"></span>
+                                    </label>
+                                    <input type="range" x-model="config.top_k" min="1" max="20" class="w-full accent-blue-500">
+                                </div>
+                            </div>
+
+                            <!-- LLM Settings -->
+                            <div class="space-y-4">
+                                <h3 class="text-sm font-semibold text-gray-800 flex items-center border-b border-gray-200 pb-2">
+                                    <i class="fas fa-robot mr-2 text-blue-500"></i>
+                                    Language Model
+                                </h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Provider</label>
+                                    <select x-model="config.provider" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="ollama">Ollama</option>
+                                        <option value="openai">OpenAI</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Model</label>
+                                    <select x-model="config.llm_model" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <template x-for="model in availableModels[config.provider]" :key="model">
+                                            <option :value="model" x-text="model"></option>
+                                        </template>
+                                    </select>
+                                </div>
+
+                                <!-- <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                                    <select x-model="config.language" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm">
+                                        <option value="id">Indonesian</option>
+                                        <option value="en">English</option>
+                                    </select>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Build Button -->
+                        <div class="mt-8 text-center border-t border-gray-100 pt-6">
+                            <div class="flex items-center justify-center mb-4" x-show="indexBuilt">
+                                <div class="flex items-center space-x-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full pulse-slow"></div>
+                                    <span>Index Ready - You can start chatting!</span>
+                                </div>
+                            </div>
+                            
+                            <button @click="buildIndex" 
+                                    :disabled="!selectedFile || isBuilding"
+                                    :class="{'opacity-50 cursor-not-allowed': !selectedFile || isBuilding,
+                                             'bg-green-500 hover:bg-green-600': indexBuilt && !isBuilding}"
+                                    class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-12 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 hover-scale flex items-center justify-center space-x-3 mx-auto shadow-lg">
+                                <i :class="{'fa-spin': isBuilding, 'fa-check': indexBuilt && !isBuilding, 'fa-hammer': !indexBuilt && !isBuilding}" 
+                                   class="fas text-lg"></i>
+                                <span x-text="isBuilding ? 'Building Index...' : (indexBuilt ? 'Rebuild Index' : 'Build Index')" class="text-lg"></span>
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 mt-3" x-show="!selectedFile">
+                                Please select a PDF file first
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Interface -->
+                <div class="bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden slide-up">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                        <h2 class="text-lg font-semibold text-white flex items-center">
+                            <i class="fas fa-comments mr-2"></i>
+                            Document Chat
+                        </h2>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div class="h-[500px] overflow-y-auto p-6 space-y-4" x-ref="chatContainer" style="scroll-behavior: smooth;">
+                        <template x-if="messages.length === 0">
+                            <div class="flex items-center justify-center h-full">
+                                <div class="text-center max-w-md mx-auto">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-message text-3xl text-blue-500"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Ready to Chat!</h3>
+                                    <p class="text-gray-600 leading-relaxed">Upload a PDF document, configure your RAG settings, build the index, and start asking questions about your document. I'll help you extract insights and answer questions based on the content.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template x-for="(message, index) in messages" :key="index">
+                            <div class="chat-message">
+                                <div class="flex" :class="message.role === 'user' ? 'justify-end' : 'justify-start'">
+                                    <div :class="message.role === 'user' ? 
+                                        'bg-gradient-to-r from-blue-500 to-blue-600 text-white' : 
+                                        'bg-gray-50 text-gray-800 border border-gray-200'" 
+                                        class="max-w-3xl px-5 py-4 rounded-2xl shadow-sm">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div :class="message.role === 'user' ? 
+                                                    'bg-white/20 text-blue-100' : 
+                                                    'bg-blue-100 text-blue-600'" 
+                                                    class="w-8 h-8 rounded-full flex items-center justify-center">
+                                                    <i :class="message.role === 'user' ? 'fas fa-user' : 'fas fa-robot'" class="text-sm"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1 text-sm leading-relaxed" x-html="formatMessage(message.content)"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template x-if="isLoading">
+                            <div class="chat-message">
+                                <div class="flex justify-start">
+                                    <div class="bg-gray-50 text-gray-800 border border-gray-200 max-w-3xl px-5 py-4 rounded-2xl shadow-sm">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-robot text-sm"></i>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="flex space-x-1">
+                                                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                                                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                                                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                                </div>
+                                                <span class="text-sm text-gray-600">Processing your question...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="border-t border-gray-100 p-6 bg-gray-50/50">
+                        <form @submit.prevent="sendMessage" class="flex space-x-4">
+                            <div class="flex-1 relative">
+                                <input type="text" 
+                                       x-model="currentMessage"
+                                       :disabled="!indexBuilt || isLoading"
+                                       :placeholder="indexBuilt ? 'Ask something about your document...' : 'Build index first to start chatting'"
+                                       class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed text-base shadow-sm">
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2" x-show="!indexBuilt">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                            </div>
+
+                                <button type="button"
+                                        @click="resetChat"
+                                        :disabled="isLoading || messages.length === 0"
+                                        :class="{'opacity-50 cursor-not-allowed': isLoading || messages.length === 0}"
+                                        class="px-4 py-4 bg-white text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 hover-scale shadow-sm">
+                                <i class="fas fa-trash"></i>
+                                </button>
+
+
+                            <button type="submit" 
+                                    :disabled="!indexBuilt || isLoading || !currentMessage.trim()"
+                                    :class="{'opacity-50 cursor-not-allowed': !indexBuilt || isLoading || !currentMessage.trim()}"
+                                    class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 hover-scale shadow-lg">
+                                <i class="fas fa-paper-plane text-lg"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Chat Status -->
+                        <div class="flex items-center justify-between mt-4">
+                            <div class="text-xs text-gray-500">
+                                <template x-if="indexBuilt">
+                                    <span class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                        <span>Ready to answer questions</span>
+                                    </span>
+                                </template>
+                                <template x-if="!indexBuilt">
+                                    <span class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                        <span>Build index to start chatting</span>
+                                    </span>
+                                </template>
+                            </div>
+                            <div class="text-xs text-gray-400" x-text="`${messages.length} messages`"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ragApp() {
+            return {
+                config: {
+                    chunker_type: 'Sentence Chunker',
+                    unit: 'token',
+                    chunk_size: 300,
+                    overlap: 50,
+                    chonkie_mode: 'semantic',
+                    embed_name: 'nomic-embed-text',
+                    backend: 'faiss',
+                    top_k: 5,
+                    provider: 'ollama',
+                    llm_model: 'mistral:latest',
+                    language: 'id'
+                },
+                availableModels: {
+                    ollama: ['mistral:latest', 'phi4-reasoning:latest', 'llama3:latest', 'deepseek-r1:7b'],
+                    openai: ['gpt-4o-mini']
+                },
+                selectedFile: null,
+                isBuilding: false,
+                isLoading: false,
+                indexBuilt: false,
+                messages: [],
+                currentMessage: '',
+
+                init() {
+                    this.loadModels();
+                    this.checkStatus();
+                },
+
+                async loadModels() {
+                    try {
+                        const response = await fetch('/api/models');
+                        const models = await response.json();
+                        this.availableModels = models;
+                    } catch (error) {
+                        console.error('Failed to load models:', error);
+                    }
+                },
+
+                resetChat() {
+                // Konfirmasi ringan biar tidak ke-reset tanpa sengaja
+                const ok = confirm('Reset chat? Semua percakapan pada dokumen ini akan dihapus.');
+                if (!ok) return;
+
+                this.messages = [];
+                this.currentMessage = '';
+                // opsional: scroll ke atas/ bawah agar terasa refresh
+                this.scrollToBottom();
+
+                this.showNotification('success', 'Chat has been reset.');
+                },
+
+                async checkStatus() {
+                    try {
+                        const response = await fetch('/api/status');
+                        const status = await response.json();
+                        this.indexBuilt = status.index_built;
+                    } catch (error) {
+                        console.error('Failed to check status:', error);
+                    }
+                },
+
+                handleFileSelect(event) {
+                    this.selectedFile = event.target.files[0];
+                },
+
+                async buildIndex() {
+                    if (!this.selectedFile) return;
+
+                    this.isBuilding = true;
+                    const formData = new FormData();
+                    formData.append('file', this.selectedFile);
+                    
+                    // Add all config parameters
+                    Object.keys(this.config).forEach(key => {
+                        formData.append(key, this.config[key]);
+                    });
+
+                    try {
+                        const response = await fetch('/api/build-index', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            this.indexBuilt = true;
+                            this.showNotification('success', result.message);
+                        } else {
+                            throw new Error(result.detail || 'Failed to build index');
+                        }
+                    } catch (error) {
+                        this.showNotification('error', error.message);
+                        console.error('Build index error:', error);
+                    } finally {
+                        this.isBuilding = false;
+                    }
+                },
+
+                async sendMessage() {
+                    if (!this.currentMessage.trim() || !this.indexBuilt) return;
+
+                    const question = this.currentMessage.trim();
+                    this.messages.push({
+                        role: 'user',
+                        content: question
+                    });
+                    
+                    this.currentMessage = '';
+                    this.isLoading = true;
+                    this.scrollToBottom();
+
+                    try {
+                        const response = await fetch('/api/query', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                question: question,
+                                provider: this.config.provider,
+                                llm_model: this.config.llm_model,
+                                language: this.config.language
+                            })
+                        });
+
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            this.messages.push({
+                                role: 'assistant',
+                                content: result.answer
+                            });
+                        } else {
+                            throw new Error(result.detail || 'Failed to get response');
+                        }
+                    } catch (error) {
+                        this.messages.push({
+                            role: 'assistant',
+                            content: `Error: ${error.message}`
+                        });
+                        console.error('Query error:', error);
+                    } finally {
+                        this.isLoading = false;
+                        this.scrollToBottom();
+                    }
+                },
+
+                scrollToBottom() {
+                    this.$nextTick(() => {
+                        const container = this.$refs.chatContainer;
+                        container.scrollTop = container.scrollHeight;
+                    });
+                },
+
+                formatMessage(content) {
+                    // Simple formatting - replace newlines with <br> and handle basic markdown
+                    return content
+                        .replace(/\n/g, '<br>')
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                        .replace(/`(.*?)`/g, '<code class="bg-gray-200 px-1 py-0.5 rounded text-xs">$1</code>');
+                },
+
+                showNotification(type, message) {
+                    // Simple notification system
+                    const notification = document.createElement('div');
+                    notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 ${
+                        type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+                    }`;
+                    notification.innerHTML = `
+                        <div class="flex items-center space-x-2">
+                            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                            <span>${message}</span>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    
+                    // Animate in
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(0)';
+                    }, 100);
+                    
+                    // Remove after 5 seconds
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(100%)';
+                        setTimeout(() => {
+                            if (document.body.contains(notification)) {
+                                document.body.removeChild(notification);
+                            }
+                        }, 300);
+                    }, 5000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

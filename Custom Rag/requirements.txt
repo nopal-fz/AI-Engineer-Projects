@@ -1,0 +1,6 @@
+streamlit
+chonkie
+langchain_community
+langchain_ollama
+sentence_transformers
+PyPDF2
